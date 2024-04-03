@@ -1,0 +1,5 @@
+name: deploy to aws s3 by docker
+description: deploy static website
+runs:
+  using: "docker"
+  image: "Dockerfile"

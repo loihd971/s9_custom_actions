@@ -50,9 +50,19 @@ jobs:
         with:
           name: dist-files
           path: dist
-      - name: deploy
+      - name: deploy by js custom action
         id: deploy-to-s3
         uses: ./.github/actions/javascript-action
+        env:
+          AWS_ACCESS_KEY_ID: <AWS_ACCESS_KEY_ID>
+          AWS_SECRET_ACCESS_KEY: <AWS_SECRET_ACCESS_KEY>
+        with:
+          bucket: <s3_bucket_name>
+          dist-folder: ./dist
+          bucket-region: us-east-2
+      - name: deploy by docker
+        id: deploy-to-s3-by-docker
+        uses: ./.github/actions/docker-action
         env:
           AWS_ACCESS_KEY_ID: <AWS_ACCESS_KEY_ID>
           AWS_SECRET_ACCESS_KEY: <AWS_SECRET_ACCESS_KEY>
