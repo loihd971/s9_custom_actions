@@ -1,5 +1,17 @@
 name: javascript custom action to deploy website to aws s3
 description: deploy static website to s3
+inputs:
+  bucket:
+    description: "the s3 bucket name"
+    required: true
+  bucket-region:
+    description: "the s3 bucket region"
+    required: false
+    default: "us-east-1"
+  dist-folder:
+    description: "the bundle folder"
+    required: true
+
 runs:
   using: "node16"
   main: "main.js"

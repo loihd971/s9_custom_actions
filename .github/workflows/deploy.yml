@@ -50,21 +50,27 @@ jobs:
         with:
           name: dist-files
           path: dist
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v3
-      - name: Get build artifacts
-        uses: actions/download-artifact@v3
+      - name: deploy
+        uses: ./.githuba/actions/javascript-action
         with:
-          name: dist-files
-          path: ./dist
-      - name: Output contents
-        run: ls
-      - name: Deploy site
-        run: echo "Deploying..."
+          bucket: <s3_bucket_name>
+          dist-folder: ./dist
+          bucket-region: us-east-2
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Get code
+  #       uses: actions/checkout@v3
+  #     - name: Get build artifacts
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: dist-files
+  #         path: ./dist
+  #     - name: Output contents
+  #       run: ls
+  #     - name: Deploy site
+  #       run: echo "Deploying..."
   information:
     runs-on: ubuntu-latest
     steps:
