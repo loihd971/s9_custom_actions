@@ -51,7 +51,7 @@ jobs:
           name: dist-files
           path: dist
       - name: deploy
-        uses: ./.githuba/actions/javascript-action
+        uses: ./.github/actions/javascript-action
         with:
           bucket: <s3_bucket_name>
           dist-folder: ./dist
