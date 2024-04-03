@@ -3,8 +3,6 @@ description: "Get dependencies and cache them"
 runs:
   using: composite
   steps:
-    - name: Get code
-      uses: actions/checkout@v3
     - name: Cache dependencies
       id: cache
       uses: actions/cache@v3
