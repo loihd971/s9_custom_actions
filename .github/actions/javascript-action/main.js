@@ -5,7 +5,7 @@ const exec = require("@actions/exec");
 function run() {
   const bucket = core.getInput("bucket", { require: true });
   const bucketRegion = core.getInput("bucket-region", { require: true });
-  const bundle = core.getInput("dist-folder", { require: true });
+  const disFolder = core.getInput("dist-folder", { require: true });
 
   //upload file to s3 by aws cli command
   const s3Uri = `s3://${bucket}`;
