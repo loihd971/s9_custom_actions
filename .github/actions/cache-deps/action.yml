@@ -8,7 +8,7 @@ inputs:
 outputs:
   cache-output:
     description: "output of custom job"
-    value: ${{ steps.install.output.cache }}
+    value: ${{ steps.install.outputs.cache }}
 runs:
   using: composite
   steps:
