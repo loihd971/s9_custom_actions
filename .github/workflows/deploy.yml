@@ -51,11 +51,18 @@ jobs:
           name: dist-files
           path: dist
       - name: deploy
+        id: deploy-to-s3
         uses: ./.github/actions/javascript-action
+        env:
+          AWS_ACCESS_KEY_ID: <AWS_ACCESS_KEY_ID>
+          AWS_SECRET_ACCESS_KEY: <AWS_SECRET_ACCESS_KEY>
         with:
           bucket: <s3_bucket_name>
           dist-folder: ./dist
           bucket-region: us-east-2
+      - name: output information
+        run: |
+          echo "Live URL: ${{  steps.deploy-to-s3.outputs.website-url }}"
   # deploy:
   #   needs: build
   #   runs-on: ubuntu-latest

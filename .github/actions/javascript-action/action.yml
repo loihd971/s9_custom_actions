@@ -11,7 +11,9 @@ inputs:
   dist-folder:
     description: "the bundle folder"
     required: true
-
+outputs:
+  website-url:
+    description: website url that deployed to s3
 runs:
   using: "node16"
   main: "main.js"

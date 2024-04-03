@@ -12,6 +12,8 @@ function run() {
   exec.exec(`aws s3 sync ${disFolder} ${s3Uri} --region ${bucketRegion}`);
 
   core.notice("javascript custom action");
+  const websiteUrl = `http://${bucket}.s3-website-${bucketRegion}.amazon.com`;
+  core.setOutput("website-url", websiteUrl);
 }
 
 run();
