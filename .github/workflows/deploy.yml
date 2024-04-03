@@ -68,7 +68,7 @@ jobs:
   information:
     runs-on: ubuntu-latest
     steps:
-      # - name: Get code
-      #   uses: actions/checkout@v3
+      - name: Get code
+        uses: actions/checkout@v3
       - name: run javascript custom action
         uses: ./.github/actions/javascript-action
