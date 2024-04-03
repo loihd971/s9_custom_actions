@@ -1,0 +1,5 @@
+name: javascript custom action to deploy website to aws s3
+description: deploy static website to s3
+runs:
+  using: "node16"
+  main: "main.js"
